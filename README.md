@@ -112,6 +112,9 @@ Voluptate atque repellendus quisquam ex asperiores fuga? Quaerat inventore, accu
 ```html
 <p>Ab reiciendis exercitationem placeat non rem in ad sunt ducimus totam sapiente, molestias illum, aperiam omnis cupiditate earum repudiandae maxime voluptates atque impedit consequatur! Expedita magnam nostrum molestias placeat. Asperiores.</p>
 ```
+> Code example
+
+
 Sequi quos ^aliaseligendivoluptatibus^ ex tempora eveniet, ~temporetemporibusvoluptate~ accusantium quo quasi sed, architecto debitis eaque hic ipsam vero ipsa facilis, exercitationem deserunt possimus! Qui a eos sapiente?
 $$
 Pariatur a in quasi hic tempora nihil adipisci nulla quas odio dolores! Adipisci at odit
@@ -147,12 +150,15 @@ Et veritatis numquam eligendi dolores veniam explicabo. Dolores fugiat ullam bla
 | Quia tempore ipsa sapiente nobis, perspiciatis ducimus est ex deserunt labore unde omnis repudiandae dolor enim fugiat eveniet architecto voluptatibus adipisci. | Dolorum atque quia perferendis eius maiores sint reiciendis doloremque. | Labore a officia modi quos fuga, placeat nulla fugit enim voluptatem deleniti. | Accusamus iste quibusdam, molestiae incidunt amet,dignissimos voluptatem repellendus eius a debitis voluptatibus cum ipsum doloremque! Asperiores, illum! |
 
 
-![paper-theme-img](.assets/paper-theme-img.png)
+![paper-theme-img](./assets/img-1.png)
+> Paper theme example
+
+![paper-theme-img](./assets/img-2.png)
+
 
 <picture>
-    <img src="README.assets/paper-theme-img.png" alt="">
-    <figcaption>Paper theme example
-    </figcaption>
+    <img src="./assets/img-3.png" alt="">
+    <figcaption>Paper theme example </figcaption>
 </picture>
 
 [Repository](https://github.com/AlbertoVf/typora-personal-themes)
