@@ -1,0 +1,98 @@
+$--page-color: #ffffff;
+$--line-color: #cccccc;
+$--numeration-color: #990000;
+$--monospace: "CaskaydiaCove Nerd Font", "Courier New", monospace;
+$--max-width-page: 1300px;
+$--font-size: 16px;
+$--font-size-print: 12px;
+
+html,
+body,
+#write {
+	background-color: $--page-color;
+}
+
+html {
+	font-size: $--font-size;
+}
+
+h1:first-of-type {
+	counter-reset: img script;
+}
+
+#write {
+	max-width: $--max-width-page;
+	text-align: justify;
+}
+
+img {
+	margin: 0.5rem;
+	max-width: 100%;
+	display: block;
+
+	&::before {
+		margin-left: 5px;
+		color: $--numeration-color;
+	}
+}
+
+//review: error cuando hay un bloque en medio de la linea
+.md-image.md-img-loaded + * + .md-plain,
+.md-fences.md-end-block.md-fences-with-lineno.ty-contain-cm.modeLoaded + p,
+figcaption {
+	font: normal normal bold 0.85em $--monospace;
+
+	&::before {
+		color: $--numeration-color;
+	}
+}
+
+.md-image.md-img-loaded + * + .md-plain,
+figcaption {
+	counter-increment: img;
+
+	&::before {
+		content: "(Imagen " counter(img) ") ";
+	}
+}
+
+.md-fences.md-end-block.md-fences-with-lineno.ty-contain-cm.modeLoaded {
+	counter-increment: script;
+
+	& + p::before {
+		content: "(Código " counter(script) ") ";
+	}
+}
+
+@media print {
+	html {
+		font-size: $--font-size-print;
+	}
+
+	h1 {
+		&:first-of-type {
+			font-size: 7rem;
+			margin-top: 12rem;
+			line-height: 6rem;
+			border: none;
+			break-after: recto;
+		}
+
+		& + h1 {
+			& + .md-toc {
+				break-before: avoid;
+			}
+		}
+	}
+
+	.md-toc {
+		margin-top: 2rem;
+		margin-right: 2rem;
+		break-before: recto;
+		break-after: recto;
+
+		p > span &:nth-child(1) {
+			visibility: hidden;
+		}
+	}
+}
