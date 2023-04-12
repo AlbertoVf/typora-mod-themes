@@ -1,0 +1,318 @@
+@import 'var';
+$--head-color-1: #111111;
+$--head-color-2: #990000;
+$--code-color: #6f6f6f;
+$--code-color-background: #f8f8f8;
+$--font-family_1: "CaskaydiaCove Nerd Font", "Courier New", monospace;
+$--font-family_2: "TeXGyreAdventor", "Century Gothic", "Yu Gothic", "Ubuntu", "STHeiti", sans-serif;
+
+@font-face {
+    font-family: "TeXGyreAdventor";
+    font-style: normal;
+    font-weight: normal;
+    src: url(./fonts/texgyreadventor-regular.otf);
+}
+
+@font-face {
+    font-family: "TeXGyreAdventor";
+    font-style: normal;
+    font-weight: bold;
+    src: url(./fonts/texgyreadventor-bold.otf);
+}
+
+@font-face {
+    font-family: "TeXGyreAdventor";
+    font-style: italic;
+    font-weight: normal;
+    src: url(./fonts/texgyreadventor-italic.otf);
+}
+
+@font-face {
+    font-family: "TeXGyreAdventor";
+    font-style: italic;
+    font-weight: bold;
+    src: url(./fonts/texgyreadventor-bolditalic.otf);
+}
+
+html,
+body {
+    background: $--page-color;
+    font-family: $--font-family_1;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#write {
+    background: $--page-color;
+    font-family: $--font-family_1;
+
+    h1:first-child {
+        margin-top: 2.75rem;
+    }
+
+    h2:first-child {
+        margin-top: 1.75rem;
+    }
+
+    h3:first-child {
+        margin-top: 1rem;
+    }
+
+    h4:first-child {
+        margin-top: 0.5rem;
+    }
+
+    h3.md-focus:before {
+        left: -1.875rem;
+        top: 0.5rem;
+        padding: 2px;
+    }
+
+    h4.md-focus:before {
+        left: -1.875rem;
+        top: 0.3125rem;
+        padding: 2px;
+    }
+
+    h5.md-focus :before {
+        left: -1.875rem;
+        top: 0.25rem;
+        padding: 2px;
+    }
+
+    h6.md-focus :before {
+        left: -1.875rem;
+        top: 0.125rem;
+        padding: 2px;
+    }
+
+    pre.md-meta-block {
+        min-height: 30px;
+        background: $--code-color-background;
+        padding: 1.5em;
+        padding-top: 3em;
+        margin-top: -1.5em;
+        color: $--code-color;
+        width: 100vw;
+        max-width: calc(100% + 60px);
+        margin-left: -30px;
+        border-left: 30px $--line-color solid;
+        border-right: 30px $--line-color solid;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $--head-color-1;
+    font-family: $--font-family_2;
+    font-weight: normal;
+}
+
+h1 {
+    color: $--head-color-1;
+    font-weight: normal;
+    line-height: 4rem;
+    margin: 0 0 1.75rem;
+    padding: 20px 30px;
+    text-align: center;
+    font-variant-caps: small-caps;
+    font-size: 2.4rem;
+
+    &:first-of-type {
+        font-size: 5rem;
+        margin-bottom: 5rem;
+        border-bottom: 3px solid;
+    }
+}
+
+h2 {
+    font-variant-caps: small-caps;
+    margin: 2rem 0 1.4rem 0;
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: $--head-color-2;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    color: $--head-color-2;
+    font-size: 1rem;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+p {
+    color: $--head-color-1;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin: 0 0 1.25rem;
+}
+
+a {
+    color: $--head-color-2;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.md-def-url {
+    color: $--head-color-2;
+    text-decoration: none;
+}
+
+table {
+    margin-bottom: 20px;
+
+    th {
+        padding: 8px;
+        line-height: 1.25rem;
+        vertical-align: top;
+        border-top: 1px solid $--line-color;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 8px;
+        line-height: 1.25rem;
+        vertical-align: top;
+        border-top: 1px solid $--line-color;
+    }
+
+    thead {
+        th {
+            vertical-align: bottom;
+        }
+
+        &:first-child tr:first-child {
+
+            th,
+            td {
+                border-top: 0;
+            }
+        }
+    }
+}
+
+code {
+    border: 2px solid $--line-color;
+    padding: 0.2em 0.5em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    color: $--head-color-2;
+    font: italic normal bold 1em $--monospace;
+    background-color: $--code-color-background;
+}
+
+.md-fences {
+    background-color: $--code-color-background;
+    margin: 0.4em 0.8em 0.8;
+    font-size: 1em;
+    padding: .9em;
+    font-family: $--monospace;
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.task-list-item {
+    padding-left: 2.125rem;
+
+    input {
+        top: 3px;
+    }
+}
+
+blockquote {
+    margin: 0 0 1.11111rem;
+    padding: 0.5rem 1.11111rem 0 1.05556rem;
+    border-left: 2px solid $--head-color-2;
+    line-height: 1.6;
+    color: $--code-color;
+
+    p {
+        line-height: 1.6;
+        color: $--code-color;
+    }
+}
+
+.MathJax_Display {
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+p.mathjax-block {
+    padding-bottom: 0;
+}
+
+.mathjax-block {
+    padding-bottom: 0;
+
+    .code-tooltip {
+        bottom: 5px;
+        box-shadow: none;
+    }
+}
+
+#typora-source {
+    .CodeMirror-lines {
+        width: 1300px;
+        max-width: none !important;
+    }
+
+    color: $--head-color-1;
+}
+
+//
+// MENU
+//
+#md-searchpanel {
+    border-bottom: 1px solid $--line-color;
+
+    .btn {
+        border: 1px solid $--line-color;
+    }
+}
+
+#md-notification {
+    &:before {
+        top: 14px;
+    }
+
+    background: $--code-color-background;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid $--line-color;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+}
+
+.show-folder-name .file-list-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+}
+
+.file-list-item-summary {
+    height: 40px;
+    line-height: 20px;
+}
