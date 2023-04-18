@@ -1,98 +1,104 @@
 $--page-color: #ffffff;
 $--line-color: #cccccc;
-$--numeration-color: #990000;
+$--numeration-color: #34373b;
 $--monospace: "CaskaydiaCove Nerd Font", "Courier New", monospace;
 $--max-width-page: 1300px;
 $--font-size: 16px;
-$--font-size-print: 12px;
+$--font-size-print: 13px;
+
+@mixin element-footer($text) {
+    content: "("$text ")";
+    padding-right: 5px;
+    font: normal italic 600 1.3rem Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 2.5rem;
+}
 
 html,
 body,
 #write {
-	background-color: $--page-color;
+    background-color: $--page-color;
 }
 
 html {
-	font-size: $--font-size;
-}
-
-h1:first-of-type {
-	counter-reset: img script;
+    font-size: $--font-size;
 }
 
 #write {
-	max-width: $--max-width-page;
-	text-align: justify;
+    max-width: $--max-width-page;
+    text-align: justify;
+    counter-reset: img script;
 }
 
 img {
-	margin: 0.5rem;
-	max-width: 100%;
-	display: block;
-
-	&::before {
-		margin-left: 5px;
-		color: $--numeration-color;
-	}
-}
-
-//review: error cuando hay un bloque en medio de la linea
-.md-image.md-img-loaded + * + .md-plain,
-.md-fences.md-end-block.md-fences-with-lineno.ty-contain-cm.modeLoaded + p,
-figcaption {
-	font: normal normal bold 0.85em $--monospace;
-
-	&::before {
-		color: $--numeration-color;
-	}
+    margin: 0.5rem;
+    max-width: 100%;
 }
 
 .md-image.md-img-loaded + * + .md-plain,
 figcaption {
-	counter-increment: img;
+    counter-increment: img;
 
-	&::before {
-		content: "(Imagen " counter(img) ") ";
-	}
+    &::before {
+        @include element-footer(counter(img));
+    }
 }
 
 .md-fences.md-end-block.md-fences-with-lineno.ty-contain-cm.modeLoaded {
-	counter-increment: script;
-
-	& + p::before {
-		content: "(Código " counter(script) ") ";
-	}
+    & + blockquote::before {
+        counter-increment: script;
+        @include element-footer(counter(script));
+    }
 }
 
+// * IMPRIMIR
 @media print {
-	html {
-		font-size: $--font-size-print;
-	}
+    html {
+        font-size: $--font-size-print;
+    }
 
-	h1 {
-		&:first-of-type {
-			font-size: 7rem;
-			margin-top: 12rem;
-			line-height: 6rem;
-			border: none;
-			break-after: recto;
-		}
+    .md-toc {
+        margin-top: 2rem;
+        margin-right: 2rem;
+        break-before: recto;
+        break-after: recto;
 
-		& + h1 {
-			& + .md-toc {
-				break-before: avoid;
-			}
-		}
-	}
+        p > span &:nth-child(1) {
+            visibility: hidden;
+        }
+    }
 
-	.md-toc {
-		margin-top: 2rem;
-		margin-right: 2rem;
-		break-before: recto;
-		break-after: recto;
+    .md-toc-h2 {
+        .md-toc-inner {
+            margin-top: 10px;
+        }
+    }
 
-		p > span &:nth-child(1) {
-			visibility: hidden;
-		}
-	}
+    .md-toc-h3 {
+        .md-toc-inner {
+            margin-top: 5px;
+        }
+    }
+
+    h1 {
+        &:first-of-type {
+            // font-size: 7rem;
+            // margin-top: 12rem;
+            // line-height: 6rem;
+            // border: none;
+
+            & + .md-toc {
+                break-after: recto;
+                font-size: 1rem;
+                margin-left: 3rem;
+                font-weight: bold;
+                font-family: $--monospace;
+            }
+        }
+
+        // & + h1 {
+        //     & + .md-toc {
+        //         break-before: avoid;
+        //     }
+        // }
+    }
 }

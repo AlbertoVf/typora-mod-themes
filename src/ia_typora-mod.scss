@@ -12,16 +12,16 @@ $accent-title-color: $link-color;
 $body-font: "CaskaydiaCove Nerd Font", monospace, Roboto;
 $monospace-font: monospace;
 $border-radius: 3px;
-$document-padding-x: 20px;
-$font-size: 13px;
-$h1-fontsize: 22px;
-$h2-fontsize: 22px;
-$h3-fontsize: 22px;
-$h4-fontsize: 22px;
-$line-height: 1.6;
-$main-content-max-width: 1450px;
-$monospace-font-size: 14px;
-$monospace-line-height: 1.6;
+$document-padding-x: 4ch;
+$font-size: $--font-size;
+$h1-fontsize: 1.4em;
+$h2-fontsize: 1.4em;
+$h3-fontsize: 1.4em;
+$h4-fontsize: 1.4em;
+$line-height: 1.5;
+$main-content-max-width: 180ch;
+$monospace-font-size: 0.9em;
+$monospace-line-height: 1.4;
 
 html {
     font-size: $font-size;
@@ -38,7 +38,7 @@ body {
 #write {
     /* size of writing area: */
     padding-left: $document-padding-x;
-    padding-right: $document-padding-x;
+    // padding-right: $document-padding-x;
     max-width: $main-content-max-width;
     box-sizing: border-box;
     text-align: justify;
@@ -62,16 +62,16 @@ h3 {
     color: $header-color;
 
     &::before {
-        font-weight: 800;
+        // font-weight: 800;
+        // font-style: normal;
         width: 3em;
         padding-right: 0.5em;
         margin-left: -3em;
-        color: $accent-title-color;
+        color: $accent-color;
         display: inline-block;
-        font-size: 1.7rem;
+        // font-size: $h1-fontsize;
         letter-spacing: 1px;
         text-align: right;
-        font-style: normal;
     }
 }
 
@@ -132,6 +132,7 @@ h3,
 h4,
 h5,
 h6 {
+
     tt,
     code {
         font-size: inherit;
@@ -157,6 +158,16 @@ th {
     padding: .35rem .7rem
 }
 
+ul {
+    li {
+        list-style-type: disc;
+
+        ::before {
+            color: $accent-title-color;
+        }
+    }
+}
+
 li p {
     margin: 0;
 }
@@ -167,6 +178,7 @@ li p {
 
 .task-list-item {
     padding-left: 1.5em;
+    margin-top: 5px;
     margin-bottom: 0rem;
 }
 
@@ -213,7 +225,6 @@ p {
 //     outline: none;
 //     width: 300px;
 // }
-
 .md-fences .code-tooltip {
     bottom: -1.8rem;
     padding: none;

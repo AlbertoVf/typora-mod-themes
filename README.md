@@ -151,6 +151,7 @@ Et veritatis numquam eligendi dolores veniam explicabo. Dolores fugiat ullam bla
 
 
 ![paper-theme-img](./assets/img-1.png)
+
 > Paper theme example
 
 ![paper-theme-img](./assets/img-2.png)
@@ -160,5 +161,6 @@ Et veritatis numquam eligendi dolores veniam explicabo. Dolores fugiat ullam bla
     <img src="./assets/img-3.png" alt="">
     <figcaption>Paper theme example </figcaption>
 </picture>
+
 
 [Repository](https://github.com/AlbertoVf/typora-personal-themes)
