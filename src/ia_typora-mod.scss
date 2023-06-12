@@ -1,31 +1,28 @@
 @import 'var';
 $accent-color: #aeb1b5;
-$background-color: #ffffff;
-$border-color: #ddd;
 $code-bg-color: #f9f9f9;
 $font-color: #34373b;
 $header-color: #1a1b1b;
 $link-color: #2077b2;
 $control-text-color: #667176;
 $side-bar-bg-color: #fafafa;
-$accent-title-color: $link-color;
-$body-font: "CaskaydiaCove Nerd Font", monospace, Roboto;
-$monospace-font: monospace;
+$body-font: $--monospace;
+$title-font: $--monospace;
 $border-radius: 3px;
-$document-padding-x: 4ch;
+$document-padding-x: 6ch;
 $font-size: $--font-size;
-$h1-fontsize: 1.4em;
-$h2-fontsize: 1.4em;
-$h3-fontsize: 1.4em;
-$h4-fontsize: 1.4em;
-$line-height: 1.5;
-$main-content-max-width: 180ch;
-$monospace-font-size: 0.9em;
-$monospace-line-height: 1.4;
+$h1-fontsize: 1.8em;
+$h2-fontsize: 1.6em;
+$h3-fontsize: 1.3em;
+$h4-fontsize: 1.3em;
+$line-height: 1.6em;
+$main-content-max-width: 190ch;
+$monospace-font-size: 1em;
+$monospace-line-height: 1.6em;
 
 html {
     font-size: $font-size;
-    background-color: $background-color;
+    background-color: $--page-color;
 }
 
 html,
@@ -38,7 +35,7 @@ body {
 #write {
     /* size of writing area: */
     padding-left: $document-padding-x;
-    // padding-right: $document-padding-x;
+    padding-right: $document-padding-x;
     max-width: $main-content-max-width;
     box-sizing: border-box;
     text-align: justify;
@@ -47,65 +44,60 @@ body {
 /** Block Elements */
 /* yaml */
 pre.md-meta-block {
-    background-color: $background-color;
-    padding-bottom: .5rem;
-    color: $accent-color;
-    border-bottom: 2px solid $border-color;
-    font-family: $monospace-font;
+    background-color: $--page-color;
+    padding-bottom: 1rem;
+    color: $control-text-color;
+    border-bottom: 1px solid $--line-color;
+    font: italic norma bolder $font-size $--code-font;
+    margin: 1.5rem;
 }
 
 /* headings */
 h1,
 h2,
 h3 {
-    font-weight: bold;
     color: $header-color;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 
     &::before {
-        // font-weight: 800;
-        // font-style: normal;
+        font-weight: bold;
         width: 3em;
         padding-right: 0.5em;
         margin-left: -3em;
         color: $accent-color;
         display: inline-block;
-        // font-size: $h1-fontsize;
-        letter-spacing: 1px;
         text-align: right;
+        font-family: $--human;
+        font-style: oblique;
     }
 }
 
 h1 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     font-size: $h1-fontsize;
 
-    &:not(:first-child) {
-        margin-top: 1rem;
+    &:first-child {
+        margin-top: 0rem;
     }
 
     &::before {
-        content: '#';
+        content: '/';
     }
 }
 
 h2 {
-    margin-top: 1rem;
-    margin-bottom: 0rem;
     font-size: $h2-fontsize;
 
     &::before {
-        content: '##';
+        content: '//';
     }
 }
 
 h3 {
-    margin-top: 1rem;
-    margin-bottom: 0rem;
     font-size: $h3-fontsize;
 
     &::before {
-        content: '###';
+        content: '///';
     }
 }
 
@@ -132,6 +124,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: $title-font;
 
     tt,
     code {
@@ -141,30 +134,40 @@ h6 {
 
 /* table */
 table {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
+    margin: 1rem 0;
 
-table tr:nth-child(2n),
-thead {
-    background-color: $side-bar-bg-color;
-}
+    & tr:nth-child(2n),
+    & thead {
+        background-color: $side-bar-bg-color;
+    }
 
-td,
-th {
-    border-style: solid;
-    border-color: $border-color;
-    border-width: 1px;
-    padding: .35rem .7rem
-}
+    & thead {
+        color: $header-color;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $title-font;
+    }
 
-ul {
-    li {
-        list-style-type: disc;
+    tr {
 
-        ::before {
-            color: $accent-title-color;
+        td,
+        th {
+            border: 1px solid $--line-color;
+            padding: .2rem 1rem;
         }
+
+        th {
+            border-bottom: 3px solid $--line-color;
+        }
+    }
+}
+
+ul,
+ol {
+    ::marker {
+        color: $accent-color;
+        font-weight: 700;
+        font-family: $monospace-font-size;
     }
 }
 
@@ -187,21 +190,15 @@ blockquote {
     padding-left: 1.3em;
     position: relative;
     overflow: hidden;
-    border-left: 3px solid $border-color;
+    border-left: 3px solid $--line-color;
     color: $accent-color;
     font-style: italic;
 }
 
-/* horizontal line */
 hr {
     border: none;
-    border-bottom: 3px solid $border-color;
-    margin-top: 1.4rem;
-    margin-bottom: 1.4rem;
-}
-
-p {
-    margin: 1rem 0;
+    border-bottom: 4px solid $--line-color;
+    margin-top: 1.4rem 0;
 }
 
 /**
@@ -216,15 +213,11 @@ p {
     box-shadow: none;
     border-radius: $border-radius;
     background-color: $code-bg-color;
-    border-color: $border-color;
+    border-color: $--line-color;
     border-style: solid;
     border-width: 1px;
 }
 
-// .code-tooltip input {
-//     outline: none;
-//     width: 300px;
-// }
 .md-fences .code-tooltip {
     bottom: -1.8rem;
     padding: none;
@@ -240,28 +233,26 @@ p {
     background-color: transparent !important;
     margin: 0 !important;
     padding: 0.125rem 0.375rem !important;
-    // color: $text-color !important;
     line-height: $line-height !important;
     height: 1.4rem !important;
 }
 
 .autoComplt-hint-selected {
     background-color: $link-color !important;
-    color: $background-color !important;
+    color: $--page-color !important;
 }
 
 /* basic styles */
 .md-fences,
 code,
 tt {
-    // border: 0px solid $border-color;
     background-color: $code-bg-color;
-    font-family: $monospace-font;
+    font-family: $--code-font;
     font-size: $monospace-font-size;
     border-radius: .45rem;
     padding: 0.35rem;
     line-height: $monospace-line-height;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .md-fences {
@@ -284,5 +275,5 @@ a {
 }
 
 #write div.md-toc-tooltip {
-    background-color: $background-color;
+    background-color: $--page-color;
 }

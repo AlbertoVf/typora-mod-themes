@@ -1,15 +1,21 @@
 $--page-color: #ffffff;
-$--line-color: #cccccc;
+$--line-color: #ddd;
 $--numeration-color: #34373b;
-$--monospace: "CaskaydiaCove Nerd Font", "Courier New", monospace;
+$--accent-color: #2077b2;
+$--monospace: "CaskaydiaCove Nerd Font", monospace, Roboto;
+$--human: 'Architects Daughter', cursive;
+$--sans-serif: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$--serif: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+$--code-font: 'Courier New', Courier, monospace;
+$--caption-font: $--serif;
 $--max-width-page: 1300px;
 $--font-size: 16px;
-$--font-size-print: 13px;
+$--font-size-print: 0.7em;
 
 @mixin element-footer($text) {
     content: "("$text ")";
     padding-right: 5px;
-    font: normal italic 600 1.3rem Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font: normal italic 600 1.3rem $--caption-font;
     margin-bottom: 2.5rem;
 }
 
@@ -54,6 +60,8 @@ figcaption {
 @media print {
     html {
         font-size: $--font-size-print;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .md-toc {
@@ -81,11 +89,6 @@ figcaption {
 
     h1 {
         &:first-of-type {
-            // font-size: 7rem;
-            // margin-top: 12rem;
-            // line-height: 6rem;
-            // border: none;
-
             & + .md-toc {
                 break-after: recto;
                 font-size: 1rem;
@@ -94,11 +97,5 @@ figcaption {
                 font-family: $--monospace;
             }
         }
-
-        // & + h1 {
-        //     & + .md-toc {
-        //         break-before: avoid;
-        //     }
-        // }
     }
 }
